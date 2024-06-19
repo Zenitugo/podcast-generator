@@ -5,7 +5,9 @@ RUN apt-get update && apt-get install -y \
   git \
   python3-venv
 
-RUN pip3 install pyyaml
+COPY requirements.txt .
+
+RUN pip3 install -r requirements.txt
 
 COPY rss-feed.py /usr/bin/rss-feed.py
 
